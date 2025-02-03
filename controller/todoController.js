@@ -71,8 +71,24 @@ const delete_Todo = async (req, res) => {
   }
 };
 
+const get_all_todos = async (req, res) => {
+  try {
+    const allTodos = await todoModel.find();
+    return res.status(200).json({
+      message: "all todos",
+      data: allTodos,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      message: "failed to get all todos",
+      error,
+    });
+  }
+}
+
 module.exports = {
   newTodo,
   updated_todo,
   delete_Todo,
+  get_all_todos,
 };
