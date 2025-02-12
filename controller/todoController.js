@@ -70,7 +70,7 @@ const delete_Todo = async (req, res) => {
     });
   }
 };
-
+// Get all todos
 const get_all_todos = async (req, res) => {
   try {
     const allTodos = await todoModel.find();
